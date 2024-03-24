@@ -1,0 +1,16 @@
+SELECT
+schemaname,
+relname,
+seq_scan,
+idx_scan
+seq_tup_read,
+seq_tup_read / seq_scan as avg_seq_read
+FROM
+pg_stat_all_tables
+WHERE
+seq_scan > 0
+AND
+schemaname not in ('pg_catalog','information_schema','pg_toast')
+ORDER BY
+avg_seq_read DESC
+LIMIT 10;
