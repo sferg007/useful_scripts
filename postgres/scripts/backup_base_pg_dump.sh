@@ -1,7 +1,9 @@
+# Script for backup of all databases in the PostgreSQL cluster except for the specified ones via pg_dump
+
 #!/bin/sh
 PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-PGPASSWORD=$(cat /home/ibtorgadmin/.secret_pass.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:'password_for_openssl')
+PGPASSWORD=$(cat /path_to_file/.secret_pass.txt | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:'password_for_openssl')
 export PGPASSWORD
 pathB=backup_path
 pathLOG=log_path
