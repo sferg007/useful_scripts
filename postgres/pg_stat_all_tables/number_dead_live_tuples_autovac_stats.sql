@@ -8,7 +8,7 @@ last_autovacuum,
 last_autoanalyze,
 n_dead_tup,
 relname
-from
+FROM
 pg_stat_all_tables
 WHERE
 schemaname not in ('pg_catalog','information_schema','pg_toast')
